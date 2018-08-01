@@ -1,4 +1,36 @@
-.container {
-    background-color: bisque;
+* {
+    margin: 0;
+    padding: 0;
+    }
+
+.container-fluid {
+    background-image: url("http://i.imgur.com/R8uYdmu.png");
+    
+    
+}
+.col-8 {
+    
+    margin: 0px auto;
     align-content: center;
+    text-align: center;
+    background-color: black;
+    
+    width: 75%;
+    padding-top: 25px;
+    height: 1047px;
+    
+}
+.logo {
+    
+    width: 85%;
+
+}
+
+
+button {
+    margin-top: 250px;
+
+}
+.question {
+    display: none;
 }
