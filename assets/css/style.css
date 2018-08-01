@@ -1,36 +1,44 @@
 * {
-    margin: 0;
-    padding: 0;
-    }
+	margin: 0;
+	padding: 0;
+	
+	}
 
 .container-fluid {
-    background-image: url("http://i.imgur.com/R8uYdmu.png");
-    
-    
+	background-image: url("http://i.imgur.com/R8uYdmu.png");
+	color: white;
+	
+	
 }
 .col-8 {
-    
-    margin: 0px auto;
-    align-content: center;
-    text-align: center;
-    background-color: black;
-    
-    width: 75%;
-    padding-top: 25px;
-    height: 1047px;
-    
+	
+	margin: 0px auto;
+	align-content: center;
+	text-align: center;
+	background-color: black;
+	
+	width: 75%;
+	padding-top: 25px;
+	height: 1047px;
+	
 }
 .logo {
-    
-    width: 85%;
+	
+	width: 85%;
 
 }
 
 
 button {
-    margin-top: 250px;
+	margin-top: 250px;
+
+}
+.time {
 
 }
 .question {
-    display: none;
+	display: none;
+}
+.submit {
+	display: none;
 }
