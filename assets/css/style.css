@@ -1,44 +1,31 @@
-* {
-	margin: 0;
-	padding: 0;
-	
-	}
-
-.container-fluid {
-	background-image: url("http://i.imgur.com/R8uYdmu.png");
-	color: white;
-	
-	
+body { 
+	background-image: url("https://images2.alphacoders.com/927/thumb-1920-927337.png"); 
 }
-.col-8 {
-	
-	margin: 0px auto;
-	align-content: center;
-	text-align: center;
+
+.container {
 	background-color: black;
+	margin: 0px auto;
+	padding: 30px ;
+	margin-top: 200px
+}
+
+.content {
+	text-align:center;
+	margin-top: 20px;
+	color: white;
+
+}
+.heading img{ 
+	margin-left: 65px;
+	width: 960px;
+	height:300px;
+
+
+}
+
+/* .content button {
 	
-	width: 75%;
-	padding-top: 25px;
-	height: 1047px;
 	
-}
-.logo {
-	
-	width: 85%;
-
-}
+} */
 
 
-button {
-	margin-top: 250px;
-
-}
-.time {
-
-}
-.question {
-	display: none;
-}
-.submit {
-	display: none;
-}
