@@ -44,13 +44,14 @@ body {
 	
 	padding-bottom: 10px ;
 	display: none;
+	text-align: center;
 
 
 }
 
 .time {
 	margin-top: 10px;
-	text-align: center;
+	
 }
 
 .questionDiv {
@@ -58,4 +59,14 @@ body {
 	text-align: center;
 }
 
+.submit {
+
+	display:none;
+
+}
+
+
+.result {
+	display: none;
+}
 

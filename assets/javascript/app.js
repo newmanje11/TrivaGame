@@ -3,60 +3,60 @@ var smashQuestion = [
     question: "What is the newest Super Smash Bros. game going to be released this year?",
     answers: {
 
-      a: "Super Smash Bros. Battle Royale",
-      b: "Super smash Bros. Wii U",
-      c: "Super smash Bros. Ultimate",
-      d: "super smash Bros. Melee"
+      A: "Super Smash Bros. Battle Royale",
+      B: "Super smash Bros. Wii U",
+      C: "Super smash Bros. Ultimate",
+      D: "super smash Bros. Melee"
 
-    }, correctAnswer: "c"
+    }, correctAnswer: "C"
   },
   {
     question: "How many character are gonna be in the newwest edition?",
     answers: {
 
-      a: 10,
-      b: 20,
-      c: 55,
-      d: 74
+      A: 10,
+      B: 20,
+      C: 55,
+      D: 74
 
-    }, correctAnswer: "d"
+    }, correctAnswer: "D"
   },
   {
     question: "What is the name of one of Super Smash Bros. most famous pro players?",
     answers: {
 
-      a: "Zero",
-      b: "Mewtwo King",
-      c: "Mango",
-      d: "Hungry Box"
+      A: "Zero",
+      B: "Mewtwo King",
+      C: "Mango",
+      D: "Hungry Box"
 
-    }, correctAnswer: "a"
+    }, correctAnswer: "A"
   },
   {
     question: "Who is the name and face of the creation of the Super Smash Bros. series?",
     answers: {
 
-      a: "Reggie Fils-Aimé",
-      b: "Masahiro Sakurai",
-      c: "Satoru Iwata",
-      d: "Shigeru Miyamoto"
+      A: "Reggie Fils-Aimé",
+      B: "Masahiro Sakurai",
+      C: "Satoru Iwata",
+      D: "Shigeru Miyamoto"
 
-    }, correctAnswer: "b"
+    }, correctAnswer: "B"
   },
   {
-  question: "Which of the new characters announced was once a boss character for the Smash Bros. Wii U",
+    question: "Which of the new characters announced was once a boss character for the Smash Bros. Wii U",
     answers: {
 
-      a: "King DeDede",
-      b: "Boswer",
-      c: "King K. Rool",
-      d: "Ridley"
+      A: "King DeDede",
+      B: "Boswer",
+      C: "King K. Rool",
+      D: "Ridley"
 
-    }
+    }, correctAnswer: "B"
   }
-  
 
-]; 
+
+];
 // var smashChoices = [
 
 // ];
@@ -75,86 +75,104 @@ $(document).ready(function () {
     $(".questions").show();
 
   });
-  })
+})
 
+timestart();
 
-    timestart();
+// getting timer to start
 
-    
+function timestart() {
+  clearInterval(intervalId);
 
-    // getting timer to start
+  var time = 60;
+  var intervalId;
+  intervalId = setInterval(timeDown, 1000);
+  function timeDown() {
+    time--;
+    $(".time").html("<h2>Time remaining: " + time + "</h2>");
 
-    function timestart() {
+    if (time === 0) {
+      showResults(questions);
       clearInterval(intervalId);
 
-      var time = 60;
-      var intervalId;
-      intervalId = setInterval(timeDown, 1000);
-      function timeDown() {
-        time--;
-        $(".time").html("<h2>Time remaining: " + time + "</h2>");
+    }
 
-        if (time === 0) {
-          alert('Times up');
-          clearInterval(intervalId);
+  }
+}
 
-        }
+startGame(smashQuestion);
 
+function startGame(smashQuestion) {
+
+  var output = [];
+  var answers;
+
+  for (var i = 0; i < smashQuestion.length; i++) {
+
+    answers = [];
+
+    for (letter in smashQuestion[i].answers) {
+
+      answers.push(
+        '<label>'
+        + '<input type="radio" name="question' + i + '" value="' + letter + '">'
+        + letter + ': '
+        + smashQuestion[i].answers[letter]
+        + '</label>'
+      );
+    }
+
+    output.push(
+      '<div class="question"><h4>' + smashQuestion[i].question + '</h4></div>'
+      + '<div class="answers">' + answers.join(' ') + '</div>'
+    );
+  }
+  $('.questions').append(output.join(' '));
+  var submit = $('<button class="btn btn-large btn-primary" onclick="showResults(smashQuestion);">');
+  submit.append("Submit");
+
+  $('.questions').append(submit);
+
+
+  // submit.onclick = function () {
+  //   showResults(questions);
+  //   console.log('preshed');
+
+  // }
+
+}
+
+  function showResults(questions) {
+
+    // gather answer containers from our quiz
+    var answerContainers = $('.questions').find('.answers');
+
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+
+    // for each question...
+    for (var i = 0; i < questions.length; i++) {
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question' + i + ']:checked') || {}).value;
+
+      // if answer is correct
+      if (userAnswer === questions[i].correctAnswer) {
+        // add to the number of correct answers
+        numCorrect++;
+
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else {
+        // color the answers red
+        answerContainers[i].style.color = 'red';
       }
     }
-    
-    startGame(smashQuestion);
 
-      function startGame(smashQuestion) {
+    // show number of correct answers out of total
+    $(".questions").append('<br>' + numCorrect + ' out of ' + smashQuestion.length) ;
 
-        var output = []; 
-        var answers;
-
-
-
-       
-        for (var i = 0; i < smashQuestion.length; i++) {
-
-            answers = [];
-
-            for ( letter in smashQuestion[i].answers) {
-
-              answers.push(
-                '<label>'
-                  + '<input type="radio" name="question'+i+'" value="'+letter+'">'
-                  + letter + ': '
-                  + smashQuestion[i].answers[letter]
-                + '</label>'
-              );
-            }
-
-            output.push(
-              '<div class="question">' + smashQuestion[i].question + '</div>'
-              + '<div class="answers">' + answers.join(' ') + '</div>'
-            );
-          }
-                 $('.questions').append(output.join(' '));
-        }
-   
-
-      
-           
-      //     var question= $("<div>");
-      //     question.addClass("questionDiv")
-
-      //     question.html("<p><h3>"+smashQuestion[i]+"</p></h3>");
-
-      //     $(".questions").append(question);
-
-      //     console.log(question);
-      //   }
-      // }
-      
-
-
-
-//     }
-
-//   });
-
-// });
+  }
