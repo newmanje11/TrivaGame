@@ -2,30 +2,60 @@ body {
 	background-image: url("https://images2.alphacoders.com/927/thumb-1920-927337.png"); 
 }
 
-.container {
-	background-color: black;
-	margin: 0px auto;
-	padding: 30px ;
-	margin-top: 200px
-}
+/* .container {
+	
+} */
 
 .content {
 	text-align:center;
-	margin-top: 20px;
+	
 	color: white;
+	background-color: black;
+	
+	padding: 30px ;
+	margin-top: 200px
 
 }
 .heading img{ 
-	margin-left: 65px;
+	margin-left: 50px;
 	width: 960px;
 	height:300px;
 
 
 }
 
-/* .content button {
+.content button {
+	margin-top:15px;
 	
+}
+
+.heading2 img{ 
+	margin-left: 50px;
+	width: 960px;
+	height:300px;
+
+
+
+}
+
+.questions {
+	color: white;
+	background-color: black;
 	
-} */
+	padding-bottom: 10px ;
+	display: none;
+
+
+}
+
+.time {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.questionDiv {
+
+	text-align: center;
+}
 
 
